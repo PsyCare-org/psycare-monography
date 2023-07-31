@@ -1,0 +1,29 @@
+{
+    "files.exclude": {
+        "**/.git": true,
+        "**/.svn": true,
+        "**/.hg": true,
+        "**/CVS": true,
+        "**/.DS_Store": true,
+        "**/Thumbs.db": true,
+        "**/*.aux": true,
+        "**/*.bbl": true,
+        "**/*.blg": true,
+        "**/*.brf": true,
+        "**/*.fdb_latexmk": true,
+        "**/*.fls": true,
+        "**/*.idx": true,
+        "**/*.ilg": true,
+        "**/*.ind": true,
+        "**/*.loa": true,
+        "**/*.lof": true,
+        "**/*.lot": true,
+        "**/*.log": true,
+        "**/*.loq": true,
+        "**/*.synctex.gz": true,
+        "**/*.toc": true,
+        "**/*.sav": true,
+        "**/*.synctex(busy)": true
+    },
+    "latex-workshop.latex.autoBuild.run": "onSave"
+}
