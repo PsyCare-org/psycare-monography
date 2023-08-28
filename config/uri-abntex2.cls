@@ -184,10 +184,8 @@
 % -----------------------------------------------------------------------------
 
 % Comando que trata a fonte nos objetos flutuantes
-\renewcommand{\fonte}[1]
-{%
-    \begin{SingleSpacing}\par\end{SingleSpacing}
-    \centering\small{Fonte: #1}
+\renewcommand{\fonte}[1]{
+    {\small{Fonte: #1}}
 }
 
 % Comando que trata as notas nos objetos flutuantes
@@ -491,4 +489,22 @@
             \end{OnehalfSpace}
         \end{minipage}
     \end{flushright}
+}
+
+
+\newcommand{\image}[5]{
+    \begin{figure}[H]
+        \centering
+        \captionsetup{#4}
+        \caption{#1}
+        \label{fig:#2}
+        \begin{tabular}{ @{} l @{} }
+            \includegraphics[#4, frame]{#3}\\
+            \fonte{#5}
+        \end{tabular}
+    \end{figure}
+}
+
+\newcommand{\refImage}[1]{
+    Figura \ref{fig:#1}
 }
