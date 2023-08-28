@@ -4,7 +4,7 @@ NodeJS é um ambiente de execução de código JavaScript e TypeScript externo a
 
 Sua implementação é contrastante em relação à outras tecnologias pois não apresenta o modelo convencional de simultaneidade, onde conceitos de threads do sistema operacional são empregados.  Seu \textit{runtime} é executado por apenas uma \textit{thread} que executa o \textit{looping} de eventos, que perdura desde a criação da \textit{thread} até quando não há mais retornos de chamadas a serem concluídos \cite{Foundation2023}.
 
-Dentro desse mesmo contexto, chamadas que normalmente seriam bloqueantes (que requerem recursos do sistema operacional) são realizadas assíncronamente utilizando a biblioteca libuv \cite{ClaudioWunder}. Na figura abaixo é possível visualizar um diagrama simplificado desse fluxo.
+Dentro desse mesmo contexto, chamadas que normalmente seriam bloqueantes (que requerem recursos do sistema operacional) são realizadas assíncronamente utilizando a biblioteca libuv \cite{ClaudioWunder}. Na Figura 8 é possível visualizar um diagrama simplificado desse fluxo.
 
 \begin{figure}[H]
     \centering
