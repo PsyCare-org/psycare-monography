@@ -1,4 +1,106 @@
 \section{Tela de acompanhamento}
 \label{sec:acompanhamento}
 
-bla bla bla bla
+Ao estar autenticado, seja como usuário ou como profissional, a tela de acompanhamento disponibiliza todas as funcionalidades relacionadas ao acompanhamento. Além dos botões auxialres de "Chat"  para ir até o chat e "Chamada" para ir até a videochamada. A página possui cinco fluxos, que são acessados pelo meno lateral esquerdo.
+
+\subsection{Tela de acompanhamento - Detalhes}
+\label{sec:acompanhamentoDetalhes}
+Utilizando o menu lateral, clicando sobre "Detalhes", chega-se à seção de detalhes do atendimento, que por sua vez traz um resumo do mesmo, informando o horário dos encontros, a quantidade de encontros realizados, o status do atendimento, a quantidade de afazeres cadastrados e a data de início do atendimento. Os detalhes estão disponível tanto para o profissional quanto para o usuário. A \refImage{attendanceDetails} demonstra essa seção.
+
+\image
+    {PsyCare - Acompanhamento: Detalhes}
+    {attendanceDetails}
+    {data/figures/attendance-details.png}
+    {width=1\textwidth}
+    {Autor}
+
+\subsection{Tela de acompanhamento - Prontuário}
+\label{sec:acompanhamentoProntuario}
+Ao clicar sobre "Prontuário" no menu lateral esquerdo, torna-se possível chegar até o prontuário médico do atendimento. Nele é possível criar e editar o prontuário do paciente informando a demanda inicial, a história regressa, o plano de intervenção e as evoluções do tratamento. Por tratar-se de informações extremamente sensíveis, este submenu aparece apenas para o profissional. Partindo disso, a \refImage{attendanceMedicalRecord} exibe uma demonstração desse fluxo.
+
+\image
+    {PsyCare - Acompanhamento: Prontuário}
+    {attendanceMedicalRecord}
+    {data/figures/attendance-medical-record.png}
+    {width=1\textwidth}
+    {Autor}
+
+\subsection{Tela de acompanhamento - Afazeres}
+\label{sec:acompanhamentoAfazeres}
+A subseção de afazeres contém as tarefas e afazeres relacionados ao acompanhamento. Aqui, o profissional disponibiliza ao paciente tarefas e afazeres que auxiliam o processo da terapia, como recomendações de leitura, prática de exercícios físicos/mentais, lembretes, e assim por diante. A \refImage{attendanceFollowUp} demonstra esse fluxo.
+
+\image
+    {PsyCare - Acompanhamento: Afazeres}
+    {attendanceFollowUp}
+    {data/figures/attendance-follow-up.png}
+    {width=1\textwidth}
+    {Autor}
+
+Dentro desse contexto, o profissional pode utilizar o botão "Criar afazer" no topo da seção para cadastrar novos itens, informando título, tipo (sendo este "Normal" para afazeres que devem possuir um rastreamento de completude, ou sendo "Contínuo" para afazeres a serem realizados continuamente durante o processo terapêutico) e descrição. Concomitantemente a isso, à direita de cada afazer também é possível editá-lo ou excluí-lo. A \refImage{attendanceFollowUpCRUD} exemplifica os fluxos de CRUD.
+
+\image
+    {PsyCare - Acompanhamento: Afazeres, CRUDs}
+    {attendanceFollowUpCRUD}
+    {data/figures/attendance-follow-up-crud.png}
+    {width=1\textwidth}
+    {Autor}
+
+Para o paciente, além da listagem, a única ação disponível é a "Concluir afazer", que está disponível apenas nos afazeres do tipo "Normal". A \refImage{attendanceFollowUpFinish} demonstra um exemplo desse fluxo.
+
+\image
+    {PsyCare - Acompanhamento: Afazeres, concluir afazer}
+    {attendanceFollowUpFinish}
+    {data/figures/attendance-follow-up-finish.png}
+    {width=.8\textwidth}
+    {Autor}
+
+\subsection{Tela de acompanhamento - Avaliar}
+\label{sec:acompanhamentoAvaliar}
+
+Estando disponível apenas ao usuário, a subseção de avaliação permite avaliar o atendimento. Nela, ao informar apenas o valor (de um a cinco) e a descrição, torna-se possível ao paciente avaliar anonimamente o serviço prestado pelo profissional. Uma vez avaliado, torna-se possível editar ou excluir a avaliação.
+
+\image
+    {PsyCare - Acompanhamento: Avaliação}
+    {attendanceRating}
+    {data/figures/attendance-rating.png}
+    {width=1\textwidth}
+    {Autor}
+
+A avaliação que aqui é gerênciada aparece juntamente a outras avaliações que o respectivo profissional recebeu na tela do profissional, citada anteriormente no subcapítulo \ref{sec:profissional}.
+
+\subsection{Tela de acompanhamento - Encontros}
+\label{sec:acompanhamentoEncontros}
+
+Disponível apenas ao profissional, a subseção de encontros disponibiliza ao psicólogo gerênciar seu registro de encontros realizados durante o atendimento. Dentro desse contexto, o profissional realiza suas anotações de cada sessão realizada, auxiliando-o a se organizar para fornecer o atendimento de maneira mais efetiva. Cada registro de encontro consiste da data do encontro, do resumo, do relatório, da análise teórica e das observações gerais. A \refImage{attendanceMeeting} demonstra essa subseção.
+
+\image
+    {PsyCare - Acompanhamento: Encontros}
+    {attendanceMeeting}
+    {data/figures/attendance-meeting.png}
+    {width=1\textwidth}
+    {Autor}
+
+Para criar um novo encontro, a plataforma disponibiliza o botão "Criar encontro" no topo da subseção, que por sua vez abre uma janela de diálogo onde o profissional informa os dados necessários para o cadastro. Juntamente a isso, embaixo de cada registro de encontro também há a possibilidade de editar e excluir o item em questão. A \refImage{attendanceMeetingCRUD} exemplifica esses três fluxos.
+
+\image
+    {PsyCare - Acompanhamento: Encontros, CRUDs}
+    {attendanceMeetingCRUD}
+    {data/figures/attendance-meeting-crud.png}
+    {width=1\textwidth}
+    {Autor}
+
+Aliado a tudo isso, a subseção também disponibiliza filtros de pesquisa dos encontros, possibilitando ao profissional procurar por registros específicos, informando uma data inicial e final e o conteúdo. Para o campo de "Conteúdo" recomenda-se utilizar palavras-chave, uma vez que o mesmo procurará qualquer ocorrência dentro do resumo, relatório, análise teórica, ou observações gerais dos encontros.
+
+\subsection{Tela de acompanhamento - Encerrar acompanhamento}
+\label{sec:acompanhamentoEncerrar}
+
+Por fim, o fluxo de "Encerrar atendimento" disponibiliza-se tanto para o profissional quanto para o paciente para permitir com que o atendimento em questão seja encerrado permanentemente. A tela apresenta um aviso detalhado e esclarecedor dos impactos causados pelo encerramento juntamente com o botão de confirmação da ação. A \refImage{attendanceDelete} exibe esse fluxo.
+
+\image
+    {PsyCare - Acompanhamento: Encerrar acompanhamento}
+    {attendanceDelete}
+    {data/figures/attendance-delete.png}
+    {width=1\textwidth}
+    {Autor}
+
+Ao confirmar a ação, o atendimento passa a fazer parte do histórico de acompanhamentos da pessoa. O usuário também é direcionado automaticamente à tela de histórico do acompanhamento em questão.

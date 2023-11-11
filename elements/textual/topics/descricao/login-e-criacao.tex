@@ -4,7 +4,7 @@
 A figura \refImage{signIn} apresenta a tela inicial inicial do sistema, utilizada para realizar a autenticação no sistema. O usuário precisa digitar seu e-mail e senha.
 
 \image
-    {PsyCare - Tela de login}
+    {PsyCare - Login}
     {signIn}
     {data/figures/sign-in.png}
     {width=1\textwidth}
@@ -14,7 +14,7 @@ Caso o usuário ainda não possua conta, é possível realizar o seu cadastro cl
 
 Escolhendo "Usuário" torna-se necessário informar nome, sobrenome, senha (e sua confirmação), número de celular, gênero e data de nascimento. Além das validações básicas do formulário, o campo de senha deve possuir obrigatóriamente: 8 caracteres, um caractere minúsculo, um caractere maísculo, um número e um caractere especial. Além do email ser obrigatoriamente único dentro do banco de dados. A \refImage{signUpUser} demonstra a tela.
 \image
-    {PsyCare - Tela Cadastro de Usuário}
+    {PsyCare - Cadastro de Usuário}
     {signUpUser}
     {data/figures/sign-up-user.png}
     {width=1\textwidth}
@@ -22,7 +22,7 @@ Escolhendo "Usuário" torna-se necessário informar nome, sobrenome, senha (e su
 
 Já ao escolher "Profissional", deverá ser necessário preencher nome, sobrenome, CPF, número CRP, email, senha (e sua confirmação), número de celular, gênero, data de nascimento, idiomas de atendimento e resumo. Evidentemente, além das validações básicas do formulário em questão, os campos de nome, sobrenome, CPF e número CRP são utilizados para checar se o profissional é um psicólogo ou psiquiatra válido, de acordo com a legislação brasileira. Os dados são informados no site \href{https://cadastro.cfp.org.br/}{Cadastro Nacional de Psicologas(os)} através da técnica de \textit{web scraping}, caso os dados sejam válidos, tudo segue seu fluxo normalmente, caso contrário um erro esclarecedor aparece em tela. Auxiliar a isto, CPF e CRP são obrigatóriamente únicos dentro do banco de dados. Além de tudo isso, o campo de senha e email possuem os mesmos comportamentos do formulário de "Usuário". A seguir, a \refImage{signUpProfessional} apresenta a tela em questão.
 \image
-    {PsyCare - Tela Cadastro de Profissional}
+    {PsyCare - Cadastro de Profissional}
     {signUpProfessional}
     {data/figures/sign-up-professional.png}
     {width=1\textwidth}
