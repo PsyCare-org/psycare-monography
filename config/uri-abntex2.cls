@@ -505,6 +505,4 @@
     \end{figure}
 }
 
-\newcommand{\refImage}[1]{
-    Figura \ref{fig:#1}
-}
+\newcommand{\refImage}[1]{Figura \ref{fig:#1}}
