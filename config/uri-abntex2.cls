@@ -506,3 +506,5 @@
 }
 
 \newcommand{\refImage}[1]{Figura \ref{fig:#1}}
+
+\newcommand{\textSpecial}[1]{{\fontfamily{qcr}\selectfont #1}}

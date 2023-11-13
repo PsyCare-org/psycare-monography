@@ -33,5 +33,28 @@
 \usepackage{setspace}
 \usepackage[justification=RaggedRight, singlelinecheck=false, format=plain]{caption}
 \usepackage[export]{adjustbox}
+\usepackage{listings}
+\definecolor{new-gray}{rgb}{0.95,0.95,0.92}
+\definecolor{verde}{rgb}{0,0.5,0}
+\lstset{
+  language=C++,
+  basicstyle=\ttfamily\small, 
+  keywordstyle=\color{blue}, 
+  stringstyle=\color{verde}, 
+  commentstyle=\color{red}, 
+  extendedchars=true, 
+  showspaces=false, 
+  showstringspaces=false, 
+  % numbers=left,
+  % numberstyle=\tiny,
+  breaklines=true, 
+  backgroundcolor=\color{new-gray},
+  breakautoindent=false,
+  tabsize=2,
+  % captionpos=b,
+  xleftmargin=0pt,
+  columns=fullflexible,
+  upquote=true,
+}
 
 \renewcommand{\familydefault}{ptm}

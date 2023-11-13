@@ -1,4 +1,225 @@
 \section{Implementação}
 \label{sec:implementacao}
 
-bla bla bla bla
+Esse subcapítulo tem como objetivo descrever brevemente a implementação prática deste trabalho, a escrita será dividida entre \textit{back-end} com NestJS e \textit{front-end} com \textit{ReactJS}. Como requisitos básicos, há o \textit{NodeJS}, \textit{PostgreSQL}, uma IDE (como o \textit{Visual Studio Code}) e uma \textit{API Platform} (como por exemplo, \textit{Postman}) instalados. 
+
+\subsection{API back-end}
+\label{sec:apiBackEnd}
+Para iniciar o desenvolvimento da API com \textit{NestJS} primeiramente é necessário instalar a biblioteca CLI. Com a CLI instalada, inicia-se o esqueleto da aplicação, para logo após instalar as bibliotecas auxiliares para dar suporte ao Postgresql, juntamente com o mapeamento objeto-relacional e suas devidas validações. Todos os comandos são executados em um terminal, da seguinte maneira:
+\begin{lstlisting}[language=bash]
+    npm install -g @nestjs/cli
+    nest new nomeDoProjeto
+    cd nomeDoProjeto/
+    npm install --save @nestjs/typeorm typeorm pg class-validator class-transformer
+\end{lstlisting}
+
+Partindo disso, inicia-se a codificação utilizando qualquer IDE de desenvolvimento. O primeiro passo é adicionar a importação e configuração do TypeORM (biblioteca responsável por conectar a API ao banco de dados) no arquivo \textSpecial{app.module.ts}, da seguinte forma:
+\begin{lstlisting}[language=bash]
+import { Module } from '@nestjs/common';
+import { AppController } from './app.controller';
+import { AppService } from './app.service';
+import { TypeOrmModule } from '@nestjs/typeorm';
+
+@Module({
+    imports: [
+    TypeOrmModule.forRoot({
+        type: 'postgres',
+        host: 'Host',
+        port: Porta,
+        username: 'Usuario',
+        password: 'Senha',
+        database: 'Nome do banco de dados',
+        synchronize: true,
+        logging: false,
+        autoLoadEntities: true,
+    }),
+    ],
+    controllers: [AppController],
+    providers: [AppService],
+})
+export class AppModule {}    
+\end{lstlisting}
+
+Ao ter a instalação e configuração concluídas, parte-se diretamente para o gerenciamento dos recursos da aplicação. Dentro desse contexto, considera-se que cada tabela do banco de dados é um recurso isolado. Para criar um novo recurso utiliza-se a CLI instalada anteriormente, executando \textSpecial{nest generate resource user}, selecionando as opções “REST API” e “Yes”, respectivamente.
+
+Com o recurso criado, altera-se o arquivo \textSpecial{user.entity.ts}, sobre o qual é responsável por representar a entidade e tabela user. Portanto, adiciona-se as colunas necessárias, conforme o exemplo abaixo:
+\begin{lstlisting}
+import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+
+@Entity()
+export class User {
+    @PrimaryGeneratedColumn()
+    id: number;
+
+    @Column({ type: 'varchar' })
+    name: string;
+
+    @Column({ type: 'varchar' })
+    surname: string;
+
+    @Column({ type: 'varchar' })
+    email: string;
+
+    @Column({ type: 'varchar' })
+    password: string;
+
+    @Column({ type: 'int', nullable: true })
+    age: number;
+
+    constructor(name: string, surname: string, email: string, password: string, age?: number) {
+        this.name = name;
+        this.surname = surname;
+        this.email = email;
+        this.password = password;
+        this.age = age;
+    }
+}
+\end{lstlisting}
+
+Além disso, altera-se o arquivo \textSpecial{user.module.ts} para importar a nova entidade para dentro da aplicação, e consequentemente para dentro do banco de dados. O processo é dado da seguinte forma:
+\begin{lstlisting}
+import { Module } from '@nestjs/common';
+import { UserService } from './user.service';
+import { UserController } from './user.controller';
+import { TypeOrmModule } from '@nestjs/typeorm';
+import { User } from './entities/user.entity';
+
+@Module({
+ imports: [TypeOrmModule.forFeature([User])],
+ controllers: [UserController],
+ providers: [UserService],
+})
+export class UserModule {}
+\end{lstlisting}
+
+Após o processo descrito, desenvolve-se o objeto de transferência de dados (DTO), que, de maneira simplista, descreve a forma com que os dados devem ser informados ao servidor. O arquivo \textSpecial{create-user.dto.ts} fica assim:
+\begin{lstlisting}
+import { IsEmail, IsInt, IsNotEmpty, IsString } from 'class-validator';
+
+export class CreateUserDto {
+    @IsString()
+    @IsNotEmpty()
+    name: string;
+
+    @IsNotEmpty()
+    @IsNotEmpty()
+    surname: string;
+
+    @IsNotEmpty()
+    @IsEmail()
+    email: string;
+
+    @IsInt()
+    age: number;
+
+    @IsString()
+    @IsNotEmpty()
+    password: string;
+}
+\end{lstlisting}
+
+O próximo passo é desenvolver o \textSpecial{user.service.ts}, que conterá as lógicas de execução dos CRUDs, onde no nosso contexto, será apenas a criação e leitura:
+\begin{lstlisting}
+import { Injectable } from '@nestjs/common';
+import { CreateUserDto } from './dto/create-user.dto';
+import { User } from './entities/user.entity';
+import { InjectRepository } from '@nestjs/typeorm';
+import { Repository } from 'typeorm';
+
+@Injectable()
+export class UserService {
+    constructor(@InjectRepository(User) repository: Repository<User>) {}
+
+    create(dto: CreateUserDto) {
+        const user: User = new User(
+            dto.name,
+            dto.surname,
+            dto.email,
+            dto.password,
+            dto.age
+        );
+
+        return this.repository.save(user);
+    }
+
+    findOne(id: number) {
+        return this.repository.findOne({ where: { id } });
+    }
+}
+\end{lstlisting}
+
+Por último, desenvolve-se as rotas que irão consumir as lógicas criadas no passo anterior, as alterações serão no arquivo \textSpecial{user.controller.ts}:
+\begin{lstlisting}
+import { Controller, Get, Post, Body, Param } from '@nestjs/common';
+import { UserService } from './user.service';
+import { CreateUserDto } from './dto/create-user.dto';
+
+@Controller('user')
+export class UserController {
+    constructor(private readonly userService: UserService) {}
+
+    @Post()
+    create(@Body() createUserDto: CreateUserDto) {
+        return this.userService.create(createUserDto);
+    }
+
+    @Get(':id')
+    findOne(@Param('id') id: string) {
+        return this.userService.findOne(+id);
+    }
+}
+\end{lstlisting}
+
+Com tudo feito até aqui, executa-se a API com o comando npm run start:dev, para podermos testar as rotas recém criadas na \textit{API Plataform}. A \refImage{backEnd} demonstra esse fluxo.
+\image
+    {Consumo da API de exemplo}
+    {backEnd}
+    {data/figures/backend.png}
+    {width=1\textwidth}
+    {Autor}
+
+\subsection{Interface front-end}
+\label{sec:frontEnd}
+Para começar o desenvolvimento da interface do usuário, basta rodar os comando de instalação e criação do esqueleto da aplicação em ReactJS em qualquer terminal:
+\begin{lstlisting}[language=bash]
+npx create-react-app nomeDoProjeto --template typescript
+cd nomeDoProjeto/
+npm install @mui/material @emotion/react @emotion/styled @mui/icons-material    
+\end{lstlisting}
+
+Com a instalação concluída, torna-se possível começar a desenvolver a tela no arquivo \textSpecial{App.tsx}, conforme mostra o seguinte código:
+\begin{lstlisting}
+import './App.css';
+import { AppBar, Button, IconButton, Toolbar, Typography } from '@mui/material';
+import PsychologyIcon from '@mui/icons-material/Psychology';
+
+function App() {
+    return (
+        <div className="app">
+            <AppBar position="static">
+            <Toolbar>
+                <IconButton sx={{ mr: '1rem', color: 'white' }}>
+                    <PsychologyIcon fontSize='large' />
+                </IconButton>
+                <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+                    Exemplo PsyCare
+                </Typography>
+                <Button color="inherit">Login</Button>
+            </Toolbar>
+            </AppBar>
+            <Typography variant='h5' sx={{ marginTop: '1rem', marginLeft: '2rem' }}>
+                Seja bem-vindo(a) ao PsyCare!
+            </Typography>
+        </div>
+    );
+}
+export default App;
+\end{lstlisting}
+
+Com o desenvolvimento concluído, executa-se a aplicação através do comando npm start, que ao ser executado, abrirá uma nova janela no navegador padrão do sistema, com a aplicação aberta. A \refImage{frontEnd} demonstra a interface de demonstração que foi montada.
+\image
+    {Interface de demonstração}
+    {frontEnd}
+    {data/figures/frontend.png}
+    {width=1\textwidth}
+    {Autor}
