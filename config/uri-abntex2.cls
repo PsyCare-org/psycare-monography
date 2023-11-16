@@ -505,6 +505,21 @@
     \end{figure}
 }
 
+\newcommand{\customFrame}[5]{
+    \begin{quadro}[H]
+        \centering
+        \captionsetup{#4}
+        \caption{#1}
+        \label{qua:#2}
+        \begin{tabular}{ @{} l @{} }
+            \includegraphics[#4, frame]{#3}\\
+            \fonte{#5}
+        \end{tabular}
+    \end{quadro}
+}
+
 \newcommand{\refImage}[1]{Figura \ref{fig:#1}}
+
+\newcommand{\refFrame}[1]{Quadro \ref{qua:#1}}
 
 \newcommand{\textSpecial}[1]{{\fontfamily{qcr}\selectfont #1}}

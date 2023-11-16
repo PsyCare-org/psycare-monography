@@ -1,19 +1,106 @@
 \section{Diagramas UML}
 \label{sec:diagramas}
 
-bla bla bla bla
+A UML (Unified Modeling Language) trata-se de uma linguagem visual, aplicada na modelagem de softwares orientados no paradigma de orientação a objetos. Sua utilização auxilia no desenvolvimento de sistemas, definindo suas características, requisitos, comportamentos, estruturas lógicas, estruturas físicas e dinâmica de processos \cite{Guedes2018}. Partindo disso, as próximas subseções apresentarão os principais diagramas deste trabalho.
 
 \subsection{Diagramas de caso de uso}
 \label{sec:diagramasDeCasoDeUso}
+De acordo com \citeonline{Guedes2018}, o diagrama de caso de uso tem como objetivo apresentar uma linguagem de fácil compreensão, para que os usuários possam ter uma deia geral de funcionamento do sistema. Além disso, ainda de acordo com o autor, esse diagrama costuma ser feito e utilizado principalmente durante a fase de levantamento e análise de requisitos do software. Partindo disso, a \refImage{diagramaCasoDeUso} representa o diagrama de caso de uso geral, onde ambos os atores, profissional e paciente, são apresentados juntamente com suas possíveis ações.
+\image
+    {Diagrama de caso de uso}
+    {diagramaCasoDeUso}
+    {data/figures/diagrama-caso-de-uso.png}
+    {width=.8\textwidth}
+    {Autor}
 
-bla bla bla
+Com base neste diagrama, o \refFrame{solicitacaoAcompanhamento} apresenta a descrição do caso de uso para o fluxo de solicitação de acompanhamento. Nesse fluxo, o principal ator é o paciente, que por sua vez deseja enviar uma solicitação de acompanhamento a determinado profissional
+\customFrame
+    {Descrição de caso de uso - Solicitação de acompanhamento}
+    {solicitacaoAcompanhamento}
+    {data/frames/diagrama-uso-solicitacao-acompanhamento.png}
+    {width=.8\textwidth}
+    {Autor}
+
+Auxiliar a este, o \refFrame{avaliarAcompanhamento} mostra a descrição do caso de uso para avaliar uma solicitação de acompanhamento. Desta vez, o ator do fluxo é o profissional, que irá avaliar uma solicitação de acompanhamento enviada por determinado paciente.
+\customFrame
+    {Descrição de caso de uso - Avaliar solicitação de acompanhamento}
+    {avaliarAcompanhamento}
+    {data/frames/diagrama-uso-avaliar-solicitacao-acompanhamento.png}
+    {width=.8\textwidth}
+    {Autor}
+
+Outro fluxo importante da aplicação é descrito no \refFrame{registrarEncontro}, que representa o passo a passo para o registro de encontros. Nesse caso de uso o ator principal é o profissional, que deseja cadastrar um encontro realizado com seu paciente.
+\customFrame
+    {Descrição de caso de uso - Registrar encontro}
+    {registrarEncontro}
+    {data/frames/diagrama-uso-registrar-encontro.png}
+    {width=.8\textwidth}
+    {Autor}
+
+
+O \refFrame{registrarAfazer} apresenta o fluxo de criação de afazeres. Nesse fluxo, o ator é o profissional, que deseja cadastrar um afazer para seu paciente.
+\customFrame
+    {Descrição de caso de uso - Registrar afazer}
+    {registrarAfazer}
+    {data/frames/diagrama-uso-registrar-afazer.png}
+    {width=.8\textwidth}
+    {Autor}
+
+Por fim, \refFrame{concluirAfazer} representa o fluxo de conclusão de afazeres. Nesse fluxo, o ator é o paciente, que deseja concluir um afazer anteriormente cadastrado pelo profissional.
+\customFrame
+    {Descrição de caso de uso - Concluir afazer}
+    {concluirAfazer}
+    {data/frames/diagrama-uso-concluir-afazer.png}
+    {width=1\textwidth}
+    {Autor}
+
 
 \subsection{Diagrama de classes}
 \label{sec:diagramaDeClasses}
 
-bla bla bla
+O diagrama de classes é um dos mais importantes e mais amplamente utilizados da UML, sua utilização permite a visualização das classes que irão compor o sistema com como seus respectivos atributos e métodos, além de também demonstrar como as classes se relacionam e transmitem informações \cite{Guedes2018}. Com base nisso, a \refImage{diagramaClasses} demonstra o diagrama de classes do sistema. 
+\image
+    {Diagrama de classes}
+    {diagramaClasses}
+    {data/figures/diagrama-de-classes.png}
+    {width=1\textwidth}
+    {Autor}
 
 \subsection{Diagramas de atividades}
 \label{sec:diagramaDeAtividades}
 
-bla bla bla
+Auxiliar as descrições de caso de uso, o diagrama de atividade tem como objetivo descrever o passo a passo a ser percorrido para a conclusão de uma atividade em específico \cite{Guedes2018}. Com isso em mente, as próximas figuras representam os principais fluxos do sistema, onde: A \refImage{solicitacaoAcompanhamento} apresenta o fluxo de solicitação de acompanhamento; a \refImage{avaliarAcompanhamento} mostra o passo a passo de avaliação de uma solicitação de acompanhamento; a \refImage{registrarEncontro} relata a criação de encontros; a \refImage{registrarAfazer} descreve a criação de afazeres; e a \refImage{concluirAfazer} a conclusão dos mesmos.
+\image
+    {Diagrama de atividade - Solicitação de acompanhamento}
+    {solicitacaoAcompanhamento}
+    {data/figures/diagrama-atividades-solicitar-acompanhamento.png}
+    {width=.8\textwidth}
+    {Autor}
+
+\image
+    {Diagrama de atividade - Avaliar solicitação de acompanhamento}
+    {avaliarAcompanhamento}
+    {data/figures/diagrama-atividades-avaliar-solicitacao-de-acompanhamento.png}
+    {width=1\textwidth}
+    {Autor}
+
+\image
+    {Diagrama de atividade - Registrar encontro}
+    {registrarEncontro}
+    {data/figures/diagrama-atividades-registrar-encontro.png}
+    {width=1\textwidth}
+    {Autor}
+
+\image
+    {Diagrama de atividade - Registrar afazer}
+    {concluirAfazer}
+    {data/figures/diagrama-atividades-concluir-afazer.png}
+    {width=.8\textwidth}
+    {Autor}
+
+\image
+    {Diagrama de atividade - Concluir afazer}
+    {registrarAfazer}
+    {data/figures/diagrama-atividades-registrar-afazer.png}
+    {width=.8\textwidth}
+    {Autor}
