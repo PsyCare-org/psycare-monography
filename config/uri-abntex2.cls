@@ -480,7 +480,7 @@
     \vspace*{\fill}
 
     \begin{flushright}
-        \begin{minipage}{.5\textwidth}
+        \begin{minipage}{.4\textwidth}
             \begin{OnehalfSpace}
                 \setlength\parindent{0pt}
                 \setlength\parskip{12pt}
