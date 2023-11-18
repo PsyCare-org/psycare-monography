@@ -523,3 +523,5 @@
 \newcommand{\refFrame}[1]{Quadro \ref{qua:#1}}
 
 \newcommand{\textSpecial}[1]{{\fontfamily{qcr}\selectfont #1}}
+
+\newcommand{\quotes}[1]{\textquotedbl #1\textquotedbl{}}

@@ -1,7 +1,7 @@
 \section{Tela de login e criação de conta}
 \label{sec:loginCriacao}
 
-A figura \refImage{signIn} apresenta a tela inicial inicial do sistema, utilizada para realizar a autenticação no sistema. O usuário precisa digitar seu e-mail e senha.
+A \refImage{signIn} apresenta a tela inicial inicial do sistema, utilizada para realizar a autenticação no sistema. O usuário precisa digitar seu e-mail e senha.
 
 \image
     {PsyCare - Login}
@@ -10,9 +10,9 @@ A figura \refImage{signIn} apresenta a tela inicial inicial do sistema, utilizad
     {width=1\textwidth}
     {Autor}
 
-Caso o usuário ainda não possua conta, é possível realizar o seu cadastro clicando sobre "Criar conta". Ao clicar, o usuário será direcionado para a página de cadastro, onde em primeiro momento será necessário escolher o tipo de usuário cadastro que será realizado, "Usuário" ou "Profissional". 
+Caso o usuário ainda não possua conta, é possível realizar o seu cadastro clicando sobre \quotes{Criar conta}. Ao clicar, o usuário será direcionado para a página de cadastro, onde em um primeiro momento será necessário escolher o tipo de usuário cadastro que será realizado, \quotes{Usuário} ou \quotes{Profissional}. 
 
-Escolhendo "Usuário" torna-se necessário informar nome, sobrenome, senha (e sua confirmação), número de celular, gênero e data de nascimento. Além das validações básicas do formulário, o campo de senha deve possuir obrigatoriamente: 8 caracteres, um caractere minúsculo, um caractere maiúsculo, um número e um caractere especial. Além do email ser obrigatoriamente único dentro do banco de dados. A \refImage{signUpUser} demonstra a tela.
+Escolhendo \quotes{Usuário} torna-se necessário informar nome, sobrenome, senha (e sua confirmação), número de celular, gênero e data de nascimento. Além das validações básicas do formulário, o campo de senha deve possuir obrigatoriamente: 8 caracteres, um caractere minúsculo, um caractere maiúsculo, um número e um caractere especial. Além do email ser obrigatoriamente único dentro do banco de dados. A \refImage{signUpUser} demonstra a tela.
 \image
     {PsyCare - Cadastro de Usuário}
     {signUpUser}
@@ -20,7 +20,7 @@ Escolhendo "Usuário" torna-se necessário informar nome, sobrenome, senha (e su
     {width=1\textwidth}
     {Autor}
 
-Já ao escolher "Profissional", deverá ser necessário preencher nome, sobrenome, CPF, número CRP, email, senha (e sua confirmação), número de celular, gênero, data de nascimento, idiomas de atendimento e resumo. Evidentemente, além das validações básicas do formulário em questão, os campos de nome, sobrenome, CPF e número CRP são utilizados para checar se o profissional é um psicólogo ou psiquiatra válido, de acordo com a legislação brasileira. Os dados são informados no site \href{https://cadastro.cfp.org.br/}{Cadastro Nacional de Psicologas(os)} através da técnica de \textit{web scraping}, caso os dados sejam válidos, tudo segue seu fluxo normalmente, caso contrário um erro esclarecedor aparece em tela. Auxiliar a isto, CPF e CRP são obrigatoriamente únicos dentro do banco de dados. Além de tudo isso, o campo de senha e email possuem os mesmos comportamentos do formulário de "Usuário". A seguir, a \refImage{signUpProfessional} apresenta a tela em questão.
+Já ao escolher \quotes{Profissional}, deverá ser necessário preencher nome, sobrenome, CPF, número CRP, email, senha (e sua confirmação), número de celular, gênero, data de nascimento, idiomas de atendimento e resumo. Evidentemente, além das validações básicas do formulário, os campos de nome, sobrenome, CPF e número CRP são utilizados para checar se o profissional é um psicólogo ou psiquiatra válido, de acordo com a legislação brasileira. Os dados são informados no site \href{https://cadastro.cfp.org.br/}{Cadastro Nacional de Psicologas(os)} através da técnica de \textit{web scraping}, caso os dados sejam válidos, tudo segue seu fluxo normalmente, caso contrário uma mensagem de erro é exibida na tela. Auxiliar a isto, CPF e CRP são obrigatoriamente únicos dentro do banco de dados. Adicionalmente, o campo de senha e email possuem os mesmos comportamentos do formulário de \quotes{Usuário}. A seguir, a \refImage{signUpProfessional} apresenta a tela em questão.
 \image
     {PsyCare - Cadastro de Profissional}
     {signUpProfessional}
