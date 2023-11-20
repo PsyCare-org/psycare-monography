@@ -1,11 +1,13 @@
 \section{Tela de chat}
 \label{sec:chat}
 
-Ao estar autenticado como usuário ou como profissional, assim como a tela de chamada citada no subcapítulo \ref{sec:chamada}, com o propósito de facilitar a comunicação entre paciente e psicólogo, a tela de chat disponibiliza todos os bate-papos de atendimento que a pessoa possui. A página possui o menu lateral esquerdo, onde é possível pesquisar (seja por nome ou mensagem) e selecionar o chat desejado. Ao selecionar um dos itens no menu, o chat respectivo passa a ser apresentado, possibilitando a troca de mensagens em tempo real. A \refImage{chat} demonstra essa tela.
+Ao estar autenticado como usuário ou como profissional, assim como a tela de chamada citada no subcapítulo \ref{sec:chamada}, com o propósito de facilitar a comunicação entre paciente e psicólogo, a tela de chat disponibiliza todos os bate-papos de atendimento que a pessoa possui. 
+
+A página possui o menu lateral esquerdo, onde é possível pesquisar (seja por nome ou mensagem) e selecionar o chat desejado. Ao selecionar um dos itens no menu, o chat respectivo passa a ser apresentado, possibilitando a troca de mensagens em tempo real através do protocolo \textit{WebSocket}, consumido e abstraído através da biblioteca \textit{Socket.IO}. A \refImage{chat} demonstra essa tela.
 
 \image
     {PsyCare - Chat}
     {chat}
     {data/figures/chat.png}
-    {width=1\textwidth}
+    {width=.9\textwidth}
     {Autor}

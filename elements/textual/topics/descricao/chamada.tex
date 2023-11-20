@@ -1,7 +1,14 @@
 \section{Tela de chamada}
 \label{sec:chamada}
 
-Estando autenticado como usuário ou como profissional, a fim de permitir melhor comunicação entre paciente e psicólogo, a tela de chamada permite aos integrantes do acompanhamento realizar videochamadas. Antes de participar propriamente da chamada, a aplicação apresenta uma tela de confirmação, orientando o profissional/usuário em estar em um ambiente minimamente tranquilo e com privacidade, visto que tais características são essenciais para a eficácia e confiança da sessão terapêutica. A \refImage{callConfirmation} demonstra esse aviso.
+Estando autenticado como usuário ou como profissional, a fim de permitir melhor comunicação entre paciente e psicólogo, a tela de chamada permite aos integrantes do acompanhamento realizar videochamadas. As videochamadas buscam dar apoio aos encontros semanais que os integrantes possuem de seus atendimentos, entretanto, para facilitar ainda mais a comunicação, a plataforma permite chegar à tela de chamada em qualquer momento do dia. 
+
+Nessa tela a plataforma integra-se com a biblioteca \textit{Video SDK} para gerenciar o protocolo \textit{WebRTC}. Antes de participar propriamente da chamada, a aplicação apresenta uma tela de confirmação, que realiza duas operações em paralelo:
+\begin{itemize}
+    \item A interface exibe um aviso, orientando o profissional/usuário em estar em um ambiente minimamente tranquilo e com privacidade, visto que tais características são essenciais para a eficácia e confiança da sessão terapêutica; 
+    \item A API back-end comunica-se diretamente com o serviço externo da \textit{Video SDK}, integrando a tabela de \textSpecial{attendance} (que representa o atendimento) com as lógicas internas da biblioteca, buscando criar uma sala de ID único;
+\end{itemize}
+Com esses fluxos em mente, a \refImage{callConfirmation} demonstra o aviso exibido na interface da aplicação.
 
 \image
     {PsyCare - Chamada, confirmação}
@@ -10,13 +17,11 @@ Estando autenticado como usuário ou como profissional, a fim de permitir melhor
     {width=1\textwidth}
     {Autor}
 
-Ao clicar em \quotes{Entrar}, o paciente/profissional passa a participar da videochamada. Aqui, a aplicação disponibiliza as funções que uma videochamada normalmente possui, como habilitar/desabilitar o microfone e câmera (podendo escolher qual dispositivo utiliza-se em cada um deles), assim como também disponibiliza o um bate papo integrado. Partindo disso, a \refImage{call} exemplifica essa tela.
+Ao clicar em \quotes{Entrar}, o paciente/profissional passa a participar da videochamada. Aqui a interface \textit{front-end} utiliza diretamente a biblioteca NPM da plataforma \textit{Video SDK} para implementar o protocolo \textit{WebRTC} e assim disponibilizar as funções que uma videochamada normalmente possui, como habilitar/desabilitar o microfone e câmera (podendo escolher qual dispositivo utiliza-se em cada um deles), assim como também disponibiliza um bate papo integrado. Partindo disso, a \refImage{call} exemplifica essa tela.
 
 \image
     {PsyCare - Chamada}
     {call}
     {data/figures/call.png}
-    {width=1\textwidth}
+    {width=.9\textwidth}
     {Autor}
-
-As videochamadas buscam dar apoio aos encontros semanais que os integrantes possuem de seus atendimentos, entretanto, para facilitar ainda mais a comunicação, a plataforma permite chegar à tela de chamada em qualquer momento do dia. 
