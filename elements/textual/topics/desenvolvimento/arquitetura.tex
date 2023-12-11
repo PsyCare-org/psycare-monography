@@ -1,7 +1,7 @@
 \section{Arquitetura do sistema}
 \label{sec:arquitetura}
 
-A arquitetura base do sistema divide-se entre cinco módulos distintos. O \textSpecial{Cliente} comunica-se com o \textSpecial{Servidor}, que por sua vez realiza as devidas intercomunicações com o \textSpecial{Banco de Dados} e o \textSpecial{Serviço Externo B}, além disso, tanto \textSpecial{Cliente} quanto \textSpecial{Servidor} comunicam-se diretamente com o \textSpecial{Serviço Externo A}. A \refImage{arquitetura} esclarece essa arquitetura apresentando todo o fluxo de comunicação existente.
+A arquitetura base do sistema divide-se entre cinco módulos distintos. O \textSpecial{Cliente} comunica-se com o \textSpecial{Servidor}, que realiza as devidas intercomunicações com o \textSpecial{Banco de Dados} e o \textSpecial{Serviço Externo B}, além disso, tanto \textSpecial{Cliente} quanto \textSpecial{Servidor} comunicam-se diretamente com o \textSpecial{Serviço Externo A}. A \refImage{arquitetura} demonstra essa arquitetura apresentando todo o fluxo de comunicação existente.
 
 \image
     {Diagrama da arquitetura do sistema}
@@ -10,4 +10,4 @@ A arquitetura base do sistema divide-se entre cinco módulos distintos. O \textS
     {width=1\textwidth}
     {Autor}
 
-A estrutura principal do sistema encontra-se no conjunto \textSpecial{Cliente}, \textSpecial{Servidor} e \textSpecial{Banco de Dados}. Nesse contexto, o \textSpecial{Serviço Externo B} entra em ação no momento de cadastro de um novo profissional do sistema, inserindo seus dados no Cadastro Nacional de Psicologas(os), a fim de garantir que o psicólogo em questão trata-se de um profissional credenciado de acordo com a legislação brasileira. Por fim, o \textSpecial{Serviço Externo A} faz-se proficiente para o gerenciamento das videochamadas da aplicação, comunicando-se diretamente com o \textSpecial{Cliente} e \textSpecial{Servidor}.
+A estrutura principal do sistema encontra-se no conjunto \textSpecial{Cliente}, \textSpecial{Servidor} e \textSpecial{Banco de Dados}. Nesse contexto, o \textSpecial{Serviço Externo B} entra em ação no momento de cadastro de um novo profissional do sistema, inserindo seus dados no Cadastro Nacional de Psicólogas(os), a fim de garantir que o psicólogo em questão trata-se de um profissional credenciado de acordo com a legislação brasileira. Por fim, o \textSpecial{Serviço Externo A} é utilizado para o gerenciamento das videochamadas da aplicação, comunicando-se diretamente com o \textSpecial{Cliente} e \textSpecial{Servidor}.

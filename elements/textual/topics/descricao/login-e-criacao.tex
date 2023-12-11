@@ -1,7 +1,7 @@
 \section{Tela de login e criação de conta}
 \label{sec:loginCriacao}
 
-A \refImage{signIn} apresenta a tela inicial inicial do sistema, utilizada para realizar a autenticação no sistema. O usuário precisa digitar seu e-mail e senha.
+A \refImage{signIn} apresenta a tela inicial inicial do sistema, utilizada para realizar a autenticação na aplicação. O usuário precisa digitar seu e-mail e senha.
 
 \image
     {PsyCare - Login}
@@ -20,7 +20,7 @@ Escolhendo \quotes{Usuário} torna-se necessário informar nome, sobrenome, senh
     {width=1\textwidth}
     {Autor}
 
-Já ao escolher \quotes{Profissional}, deverá ser necessário preencher nome, sobrenome, CPF, número CRP, email, senha (e sua confirmação), número de celular, gênero, data de nascimento, idiomas de atendimento e resumo. Evidentemente, além das validações básicas do formulário, os campos de nome, sobrenome, CPF e número CRP são utilizados para checar se o profissional é um psicólogo ou psiquiatra válido, de acordo com a legislação brasileira. Os dados são informados no site \href{https://cadastro.cfp.org.br/}{Cadastro Nacional de Psicologas(os)} através da técnica de \textit{web scraping}, caso os dados sejam válidos, tudo segue seu fluxo normalmente, caso contrário uma mensagem de erro é exibida na tela. Auxiliar a isto, CPF e CRP são obrigatoriamente únicos dentro do banco de dados. Adicionalmente, o campo de senha e email possuem os mesmos comportamentos do formulário de \quotes{Usuário}. A seguir, a \refImage{signUpProfessional} apresenta a tela em questão.
+Já ao escolher \quotes{Profissional}, deverá ser necessário preencher nome, sobrenome, CPF, número CRP, email, senha (e sua confirmação), número de celular, gênero, data de nascimento, idiomas de atendimento e resumo. Evidentemente, além das validações básicas do formulário, os campos de nome, sobrenome, CPF e número CRP são utilizados para checar se o profissional é um psicólogo ou psiquiatra válido, de acordo com a legislação brasileira. Os dados são informados no site \href{https://cadastro.cfp.org.br/}{Cadastro Nacional de Psicologas(os)} através da técnica de \textit{web scraping}, caso os dados sejam válidos, tudo segue seu fluxo normalmente, caso contrário uma mensagem de erro é exibida na tela. Auxiliar a isto, CPF e CRP são obrigatoriamente únicos dentro do banco de dados. Adicionalmente, o campo de senha e email possuem os mesmos comportamentos do formulário de \quotes{Usuário}. A \refImage{signUpProfessional} apresenta a tela em questão.
 \image
     {PsyCare - Cadastro de Profissional}
     {signUpProfessional}
